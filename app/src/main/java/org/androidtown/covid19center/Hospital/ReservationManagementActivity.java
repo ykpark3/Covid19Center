@@ -1,15 +1,15 @@
 package org.androidtown.covid19center.Hospital;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,11 +21,9 @@ import org.androidtown.covid19center.Server.AppManager;
 import org.androidtown.covid19center.Server.ReservationVO;
 
 import java.text.SimpleDateFormat;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 //의료진용 예약 관리 페이지
@@ -34,10 +32,13 @@ public class ReservationManagementActivity extends AppCompatActivity {
     AppCompatActivity activity = this;
 
     //임시 리스트
-    ArrayList<ReservationVO> reservationList;
-    ArrayList<ReservationVO> selectedList;
+    private ArrayList<ReservationVO> reservationList;
+    private ArrayList<ReservationVO> selectedList;
 
-    String date; //캘린더에서 선택한 날짜
+    private String date; //캘린더에서 선택한 날짜
+
+    private TextView textview_notify_ques;
+    private ImageButton backButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +46,11 @@ public class ReservationManagementActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_reservation_management);
         CalendarView calendarView = findViewById(R.id.hospital_calendar);
+//        textview_notify_ques = findViewById(R.id.textview_notify_ques);
+        LinearLayout layout_listview_contents = findViewById(R.id.layout_listview_contents);
+        View deviding_line = findViewById(R.id.view_deviding_line);
+        backButton = (ImageButton)findViewById(R.id.self_check_result_back_button);
+
 
         //임시 예약 환자 리스트 생성
         initList();
@@ -59,6 +65,14 @@ public class ReservationManagementActivity extends AppCompatActivity {
         //오늘 날짜 예약 리스트 받아오기
         selectListItem();
 
+        if(selectedList.size() == 0){
+            layout_listview_contents.setVisibility(View.INVISIBLE);
+            deviding_line.setVisibility(View.INVISIBLE);
+        }else{
+            layout_listview_contents.setVisibility(View.VISIBLE);
+            deviding_line.setVisibility(View.VISIBLE);
+        }
+
         ListView listView = findViewById(R.id.reservation_listview);
         ListAdapter listAdapter = new ListAdapter(this,selectedList, date);
 
@@ -70,14 +84,28 @@ public class ReservationManagementActivity extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 month += 1;
 
-
                 date = year + "/" + month + "/" +  dayOfMonth;
-
 
                 //날짜별 환자 리스트 받아오기
                 selectListItem();
                 listAdapter.updateItem(selectedList);
                 listAdapter.notifyDataSetChanged();
+
+                if(selectedList.size() == 0){
+                    layout_listview_contents.setVisibility(View.INVISIBLE);
+                    deviding_line.setVisibility(View.INVISIBLE);
+                }else{
+                    layout_listview_contents.setVisibility(View.VISIBLE);
+                    deviding_line.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+                finish();
             }
         });
     }

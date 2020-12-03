@@ -1,9 +1,7 @@
 package org.androidtown.covid19center.Main;
 
 
-
 import android.content.Intent;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -21,9 +19,7 @@ import com.naver.maps.map.NaverMapSdk;
 import org.androidtown.covid19center.DataBase.AppDatabase;
 import org.androidtown.covid19center.DataBase.Clinic;
 import org.androidtown.covid19center.Hospital.FragmentHospital;
-
 import org.androidtown.covid19center.Map.LocationConsts;
-
 import org.androidtown.covid19center.Mypage.FragmentMypage;
 import org.androidtown.covid19center.R;
 import org.androidtown.covid19center.Search.FragmentSearch;

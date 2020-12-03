@@ -1,15 +1,12 @@
 package org.androidtown.covid19center.Search;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
-
 import android.location.LocationListener;
-
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,22 +24,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-
-
-import com.google.android.gms.common.internal.service.Common;
-
-
 import com.naver.maps.map.MapFragment;
 
-import org.androidtown.covid19center.Main.MainActivity;
 import org.androidtown.covid19center.Map.LocationConsts;
 import org.androidtown.covid19center.Map.MapActivity;
 import org.androidtown.covid19center.QrCode.CreateQr;
 import org.androidtown.covid19center.R;
 import org.androidtown.covid19center.Search.List.SearchActivity;
-
-
-import java.security.Permission;
 
 public class FragmentSearch extends Fragment implements LocationListener{
 
@@ -61,8 +49,6 @@ public class FragmentSearch extends Fragment implements LocationListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_search, container, false);
-
-
 
         return view;
     }

@@ -1,22 +1,22 @@
 package org.androidtown.covid19center.Search;
 
 import android.app.Dialog;
-
 import android.content.Context;
-
-
 import android.content.Intent;
-
 import android.os.Bundle;
-
 import android.view.View;
-
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import org.androidtown.covid19center.R;
 import org.androidtown.covid19center.SelfCheck.QuestionnaireActivity;
+
+import java.util.ArrayList;
+
+
+import java.util.ArrayList;
+
 
 
 import java.util.ArrayList;

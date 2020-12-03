@@ -2,6 +2,7 @@ package org.androidtown.covid19center.Hospital;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.androidtown.covid19center.R;
 import org.androidtown.covid19center.SelfCheck.QuestionnaireActivity;
@@ -56,13 +56,13 @@ public class ListAdapter extends BaseAdapter {
         LinearLayout linearLayout = view.findViewById(R.id.layout_listview);
 
         listview_user_id.setText(list.get(position).getUser_id());
-        //네이밍 수정하기
-        listview_hospital.setText(String.valueOf(list.get(position).getVisited()));
+//        //네이밍 수정하기
+//        listview_hospital.setText(String.valueOf(list.get(position).getVisited()));
         listview_date.setText(list.get(position).getDate());
         listview_time.setText(list.get(position).getTime());
-//        listview_time.setText(String.valueOf(list.get(position).getVisited()));
 
 
+        //리스트뷰 클릭시 환자 문진표 띄우기
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,11 +74,16 @@ public class ListAdapter extends BaseAdapter {
             }
         });
 
+        //진료 완료시 클릭 비활성화
+        if(list.get(position).getVisited() == 1){
+            //리스트뷰 배경색 변경, 비활성화
+            view.setBackgroundColor(Color.rgb(226,226,226));
+            view.setEnabled(false);
 
-        //진료 완료시 버튼 비활성화
-//        if(list.get(position).getVisited() == true){
-//            finish_button.setClickable(false);
-//        }
+            //진료완료 버튼 배경생 변경, 비활성화
+            finish_button.setBackgroundResource(R.drawable.background_gray_rectangle);
+            finish_button.setEnabled(false);
+        }
 
         //진료 완료 묻는 팝업창 띄우기
         finish_button.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +102,7 @@ public class ListAdapter extends BaseAdapter {
                     public void onOkClicked() {
                         //여기서 true값으로 리스트 값 변경하기!!!!!!!!!!
                         list.get(position).setVisited(1);
+
                         updateItem(list);
                     }
 

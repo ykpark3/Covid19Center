@@ -7,17 +7,24 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="60dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로고!"
-            android:textColor="@color/colorBlack"
-            android:textSize="15dp"
-            android:layout_gravity="center"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/covid_logo"/>
     </FrameLayout>
 
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="로고!"-->
+<!--            android:textColor="@color/colorBlack"-->
+<!--            android:textSize="15dp"-->
+<!--            android:layout_gravity="center"/>-->
 
     <FrameLayout
         android:id="@+id/hospital_qr_scan2"

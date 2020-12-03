@@ -1,6 +1,5 @@
 package org.androidtown.covid19center.Search;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +7,6 @@ import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -19,7 +17,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,7 +24,6 @@ import org.androidtown.covid19center.R;
 import org.androidtown.covid19center.Search.Time.MyAdapter;
 import org.androidtown.covid19center.Search.Time.SubTimeAdapter;
 import org.androidtown.covid19center.Search.Time.SubTimeItem;
-
 import org.androidtown.covid19center.Search.Time.TimeListDecoration;
 
 import java.util.ArrayList;

@@ -8,11 +8,11 @@ public class DistanceComparator implements Comparator<ClinicItem> {
         double firstValue = o1.getClinicDistance();
         double secondValue = o2.getClinicDistance();
 
-        if(firstValue < secondValue){
+        if (firstValue < secondValue) {
             return -1;
-        } else if(firstValue > secondValue){
+        } else if (firstValue > secondValue) {
             return 1;
-        } else{
+        } else {
             return 0;
         }
     }

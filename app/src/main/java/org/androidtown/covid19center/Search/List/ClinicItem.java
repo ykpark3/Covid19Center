@@ -47,16 +47,16 @@ public class ClinicItem {
         return y;
     }
 
+    public void setY(String y) {
+        this.y = y;
+    }
+
     public double getClinicDistance() {
         return clinicDistance;
     }
 
     public void setClinicDistance(double clinicDistance) {
         this.clinicDistance = clinicDistance;
-    }
-
-    public void setY(String y) {
-        this.y = y;
     }
 
     public String getClinicAddress() {

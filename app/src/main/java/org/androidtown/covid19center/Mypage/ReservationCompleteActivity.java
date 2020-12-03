@@ -3,12 +3,14 @@ package org.androidtown.covid19center.Mypage;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +24,18 @@ import org.androidtown.covid19center.Server.ServiceApi;
 
 import java.util.ArrayList;
 
+
+import org.androidtown.covid19center.R;
+
+import com.airbnb.lottie.LottieAnimationView;
+
+import org.androidtown.covid19center.R;
+import org.androidtown.covid19center.Server.AppManager;
+
+
+
+
+
 public class ReservationCompleteActivity extends AppCompatActivity {
 
     private String user_id; // 예약자 이름
@@ -34,6 +48,7 @@ public class ReservationCompleteActivity extends AppCompatActivity {
     private final String clinicAddressExplain = "병원 주소 : ";
     private String clinicCallNumber; // 병원 전화번호
     private final String clinicCallNumberExplain = "전화번호 : ";
+
     private boolean isVisited; // 1번 문항 트루 펄스
     private String visitedDetail; // 갔다온 장소
     private final String nationPlaceExplain = "방문국가/지역/장소 : ";
@@ -43,12 +58,20 @@ public class ReservationCompleteActivity extends AppCompatActivity {
     private String contact_relationship; // 본인과의 관계
     private final String contactRelationShipExplain = "본인과의 관계 : ";
     private String contact_period; // 접촉 기간
+
     private final String relationDateExplain = "접촉 기간 : ";
     private boolean symptomCheck; // 증상
     private String symptomList; // 증상 리스트
     private final String symptomListExplain = "관련 증상 : ";
+
     private String symptom_start_date; // 증상 날짜
     private final String symptomDateExplain = "증상 날짜 : ";
+
+    private String doctorMessage;
+    private final String doctorMessageExplain = "의사에게 전달 사항 : ";
+
+
+
     private boolean hasFever, hasMuscle_ache, hasCough, hasSputum, hasRunnyNose, hasDyspnea, hasSoreThroat;
     private StringBuffer symptoms;
     private ImageButton callButton;
@@ -66,6 +89,9 @@ public class ReservationCompleteActivity extends AppCompatActivity {
     private TextView symptomYesOrNoTextView;
     private TextView symptomListTextView;
     private TextView symptomDateTextView;
+
+    private TextView doctorMessageTextView;
+
     private ImageButton backButton;
 
     private Button questionnaireModificationButton;
@@ -75,17 +101,21 @@ public class ReservationCompleteActivity extends AppCompatActivity {
     private int sequence;
     private String toDoctor;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_reservation_complete);
+
+
         serviceApi = RetrofitClient.getClient().create(ServiceApi.class);
 
         setElement();
         //setIntentInfomation();
 
         getQuesionnaire();
+
 
         callButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -247,6 +277,7 @@ public class ReservationCompleteActivity extends AppCompatActivity {
         }
 
         if (hasSoreThroat) {
+
             symptoms.append("인후통,");
         }
 
@@ -255,12 +286,15 @@ public class ReservationCompleteActivity extends AppCompatActivity {
             symptoms.deleteCharAt(symptoms.length() - 1);
             symptomCheck = true;
         } else {
+
             symptomCheck = false;
         }
 
     }
 
+
     private void setElement() {
+
         backButton = findViewById(R.id.reservation_complete_backButton);
         nameTextView = findViewById(R.id.reservation_complete_userName);
         dateTextView = findViewById(R.id.reservation_complete_date);
@@ -277,13 +311,21 @@ public class ReservationCompleteActivity extends AppCompatActivity {
         symptomListTextView = findViewById(R.id.reservation_complete_symptom_true_textView);
         symptomDateTextView = findViewById(R.id.reservation_complete_symptom_date_textView);
         callButton = findViewById(R.id.reservation_complete_callButton);
+
+        doctorMessageTextView = findViewById(R.id.reservation_complete_doctor_message_textView);
     }
 
+
+
+
     private void setElementInfo() {
+
         dateTextView.setText(clinicDateExplain + clinicDate);
         clinicNameTextView.setText(clinicNameExplain + clinicName);
         clinicAddressTextView.setText(clinicAddressExplain + clinicAddress);
         clinicCallNumberTextView.setText(clinicCallNumberExplain + clinicCallNumber);
+
+        doctorMessageTextView.setText(doctorMessageExplain + doctorMessage);
 
         if (isVisited == true) {
             nationalYesOrNoTextView.setText("있음");
@@ -292,6 +334,7 @@ public class ReservationCompleteActivity extends AppCompatActivity {
             nationalPlaceTextView.setVisibility(View.VISIBLE);
             nationalDateTextView.setVisibility(View.VISIBLE);
         } else {
+
             nationalYesOrNoTextView.setText("없음");
             nationalPlaceTextView.setVisibility(View.GONE);
             nationalDateTextView.setVisibility(View.GONE);
@@ -308,6 +351,7 @@ public class ReservationCompleteActivity extends AppCompatActivity {
             contactRelationTextView.setVisibility(View.GONE);
             contactDateTextView.setVisibility(View.GONE);
         }
+
 
         if (symptomCheck == true) {
             symptomYesOrNoTextView.setText("있음");
@@ -330,6 +374,7 @@ public class ReservationCompleteActivity extends AppCompatActivity {
         clinicName = intent.getExtras().getString("clinicName");
         clinicAddress = intent.getExtras().getString("clinicAddress");
         clinicCallNumber = intent.getExtras().getString("clinicCallNumber");
+
         isVisited = intent.getExtras().getBoolean("nationalCheck");
         visitedDetail = intent.getExtras().getString("nationalPlace");
         entrance_date = intent.getExtras().getString("nationalDate");
@@ -343,7 +388,6 @@ public class ReservationCompleteActivity extends AppCompatActivity {
         } else {
             symptomCheck = true;
         }
-
 
     }
 

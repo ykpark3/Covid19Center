@@ -19,13 +19,12 @@
 
         <ImageButton
             android:id="@+id/search_backButton"
-            android:stateListAnimator="@null"
-
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:backgroundTint="@color/colorWhite"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical|left"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_round_keyboard_arrow_left_24"/>
 
         <TextView
             android:layout_width="wrap_content"

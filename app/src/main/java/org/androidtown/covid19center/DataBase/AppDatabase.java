@@ -2,9 +2,9 @@ package org.androidtown.covid19center.DataBase;
 
 import android.content.Context;
 
-        import androidx.room.Database;
-        import androidx.room.Room;
-        import androidx.room.RoomDatabase;
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 @Database(entities = {Clinic.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
@@ -12,13 +12,13 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase database;
 
-    private static String DATABASE_NAME = "clinic";
+    private static final String DATABASE_NAME = "clinic";
 
-    public synchronized static AppDatabase getInstance(Context context){
+    public synchronized static AppDatabase getInstance(Context context) {
         // Check condition
-        if(database == null){
+        if (database == null) {
             database = Room.databaseBuilder(context.getApplicationContext(),
-                    AppDatabase.class,DATABASE_NAME)
+                    AppDatabase.class, DATABASE_NAME)
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();

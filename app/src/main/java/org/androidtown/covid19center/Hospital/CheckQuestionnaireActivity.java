@@ -2,7 +2,9 @@ package org.androidtown.covid19center.Hospital;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.util.Log;
+
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -11,6 +13,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.androidtown.covid19center.R;
+
+import org.androidtown.covid19center.Server.QuestionnaireVO;
+
+
 import org.androidtown.covid19center.Server.AppManager;
 import org.androidtown.covid19center.Server.QuestionnaireVO;
 
@@ -23,13 +29,14 @@ public class CheckQuestionnaireActivity extends AppCompatActivity {
     private RadioButton visited_false;
     private TextView visited_country;
     private TextView entry_date;
-
     private RadioButton contact_true;
     private RadioButton contact_false;
     private TextView relation;
     private TextView period;
 
+
 //    private CheckBox symptom_false;
+
     private CheckBox fever;
     private CheckBox muscle_ache;
     private CheckBox cough;
@@ -39,9 +46,13 @@ public class CheckQuestionnaireActivity extends AppCompatActivity {
     private CheckBox sore_throat;
     private TextView start_date;
 
+    private TextView to_doctor;
+
+
 
     private int ques_seq;
     private ArrayList<QuestionnaireVO> questionnaireVOArrayList;
+
 
 
 
@@ -71,12 +82,17 @@ public class CheckQuestionnaireActivity extends AppCompatActivity {
         sore_throat = findViewById(R.id.questionnarie_sore_throat);
         start_date = findViewById(R.id.questionnarie_start_date);
 
+        to_doctor = findViewById(R.id.questionnaire_to_doctor);
+
+
+
         //클릭한 환자 문진표 시퀀스 받아오기
         Intent intent = getIntent();
         ques_seq = intent.getExtras().getInt("questionnaire sequence");
         Log.d("~~~~FragmentHospital","ques_seq: "+ques_seq);
 
         //해당 sequence값 문진표 서버에서 받아오기!
+
         initList();
 
         checkQuestionnaire();
@@ -120,29 +136,38 @@ public class CheckQuestionnaireActivity extends AppCompatActivity {
 
         Log.d("~~~~~FragmentHospital","-----initlist end-----");
 
+
     }
 
     public void checkQuestionnaire() {
+
 
         Log.d("~~~~~FragmentHospital","checkQuestionnaire");
 
         //위험지역 방문 여부
         if (qeQuestionnaireVO.getVisited() == 1){
+
             visited_true.setChecked(true);
 
             visited_country.setText(qeQuestionnaireVO.getVisited_detail());
             entry_date.setText(qeQuestionnaireVO.getEntrance_date());
+
         }else{
+
             visited_false.setChecked(true);
         }
 
         //접촉 여부
+
         if(qeQuestionnaireVO.getContact() == 1){
+
             contact_true.setChecked(true);
 
             relation.setText(qeQuestionnaireVO.getContact_relationship());
             period.setText(qeQuestionnaireVO.getContact_period());
+
         }else{
+
             contact_false.setChecked(true);
         }
 
@@ -155,5 +180,9 @@ public class CheckQuestionnaireActivity extends AppCompatActivity {
         if(qeQuestionnaireVO.getDyspnea()==1) dyspnea.setChecked(true);
         if(qeQuestionnaireVO.getSore_throat()==1) sore_throat.setChecked(true);
         if(qeQuestionnaireVO.getSymptom_start_date() != null) start_date.setText(qeQuestionnaireVO.getSymptom_start_date());
+
+        if(qeQuestionnaireVO.getToDoctor() != null) to_doctor.setText(qeQuestionnaireVO.getToDoctor());
+
+
     }
 }

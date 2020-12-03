@@ -1,13 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content" android:orientation="horizontal" android:id="@+id/layout_listview">
+
+    android:layout_height="60dp" android:orientation="horizontal" android:id="@+id/layout_listview">
+
+
+    <TextView
+        android:id="@+id/listview_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="center"
+        android:textColor="@color/colorBlack"/>
+
+    <TextView
+        android:id="@+id/listview_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_gravity="center"
+        android:textColor="@color/colorBlack"/>
 
     <TextView
         android:id="@+id/listview_user_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="35dp"
+        android:layout_gravity="center"
         android:textColor="@color/colorBlack"/>
 
     <TextView
@@ -15,27 +34,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:textColor="@color/colorBlack"/>
-
-    <TextView
-        android:id="@+id/listview_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:textColor="@color/colorBlack"/>
-
-    <TextView
-        android:id="@+id/listview_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_gravity="center"
         android:textColor="@color/colorBlack"/>
 
     <Button
         android:id="@+id/finish_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_width="65dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center"
+        android:background="@drawable/background_purple_rectangle"
         android:text="진료 완료"
         android:textColor="@color/colorBlack"
         android:textSize="10dp"/>

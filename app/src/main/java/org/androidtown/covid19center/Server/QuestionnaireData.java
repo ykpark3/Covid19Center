@@ -7,14 +7,17 @@ import java.util.zip.CheckedOutputStream;
 public class QuestionnaireData {
 
 
+
     @SerializedName("sequence")
     int sequence;
+
     @SerializedName("user_id")
     String user_id;
     @SerializedName("visited")
     boolean visited;
     @SerializedName("visited_detail")
     String visited_detail;
+
     @SerializedName("entrance_date")
     String entrance_date;
 
@@ -100,7 +103,9 @@ public class QuestionnaireData {
                              boolean dyspnea,
                              boolean sore_throat,
                              String symptom_start_date,
+
                              String toDoctor) {
+
 
         this.user_id = user_id;
         this.visited = visited;

@@ -30,9 +30,8 @@ import java.util.List;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    MapFragment mapFragment;
-
     private static final int LOCATTION_PERMISSION_REQUEST_CODE = 1000;
+    MapFragment mapFragment;
     private AppDatabase db;
     private ArrayList<ClinicItem> clinicDataList; // 진료소 담을 리스트 생성
     private int number;
@@ -76,7 +75,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions,  @NonNull int[] grantResults) {
+                                           @NonNull String[] permissions, @NonNull int[] grantResults) {
 
         if (locationSource.onRequestPermissionsResult(
                 requestCode, permissions, grantResults)) {
@@ -103,7 +102,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         number = 0;
 
-        button.setOnClickListener(new View.OnClickListener(){
+        button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -120,18 +119,18 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 //clinicDataList.add(new ClinicItem(clinics.get(i).getClinicName(),clinics.get(i).getClinicCallNumber(), clinics.get(i).getClinicAddress(), clinics.get(i).getX(), clinics.get(i).getY()));
                 marker.setTag(clinics.get(i).getClinicName());
                 //marker.setCaptionText(clinics.get(i).getClinicName()+","+clinics.get(i).getClinicCallNumber()+","+clinics.get(i).getClinicAddress());
-                marker.setSubCaptionText(clinics.get(i).getClinicName()+","+clinics.get(i).getClinicAddress()+","+clinics.get(i).getClinicCallNumber()+","+clinics.get(i).getX()+","+clinics.get(i).getY());
+                marker.setSubCaptionText(clinics.get(i).getClinicName() + "," + clinics.get(i).getClinicAddress() + "," + clinics.get(i).getClinicCallNumber() + "," + clinics.get(i).getX() + "," + clinics.get(i).getY());
                 marker.setWidth(50);
                 marker.setHeight(80);
                 marker.setPosition(new LatLng(Double.parseDouble(clinics.get(i).getY()), Double.parseDouble(clinics.get(i).getX())));
-                marker.setOnClickListener(overlay ->{
+                marker.setOnClickListener(overlay -> {
 
-                    if(marker.getInfoWindow() == null){
+                    if (marker.getInfoWindow() == null) {
 
                         clinicInfo = passClinicsInfo(marker.getSubCaptionText());
                         infoWindow.open(marker);
                         button.setVisibility(View.VISIBLE);
-                        button.setOnClickListener(new View.OnClickListener(){
+                        button.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 Intent intent = new Intent(
@@ -148,12 +147,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                             }
                         });
 
-                    } else{
+                    } else {
                         infoWindow.close();
                         button.setVisibility(View.GONE);
                     }
 
-                        return true;
+                    return true;
                 });
 
                 infoWindow.close();
@@ -172,13 +171,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             @NonNull
             @Override
             public CharSequence getText(@NonNull InfoWindow infoWindow) {
-                return (CharSequence)infoWindow.getMarker().getTag();
+                return (CharSequence) infoWindow.getMarker().getTag();
             }
         });
 
     }
 
-    private String[] passClinicsInfo(String info){
+    private String[] passClinicsInfo(String info) {
         String[] clinicInfoArray = new String[5];
         clinicInfoArray = info.split(",");
         return clinicInfoArray;

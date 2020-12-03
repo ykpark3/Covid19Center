@@ -5,9 +5,6 @@ import android.location.LocationListener;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.naver.maps.map.NaverMap;
-
-import org.androidtown.covid19center.Main.NaverConsts;
 import org.androidtown.covid19center.Map.LocationConsts;
 
 public class GPSListener implements LocationListener {

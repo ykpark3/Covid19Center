@@ -8,17 +8,26 @@
     android:orientation="vertical"
     tools:context=".Search.FragmentSearch">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7">
+        android:layout_weight="7"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/covid_logo"/>
 
         <TextView
             android:id="@+id/searchBox"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center|top"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/rectengle_shape"
@@ -31,7 +40,24 @@
             android:text="선별진료소를 검색해보세요."
             android:textSize="15dp" />
 
-    </FrameLayout>
+<!--        <TextView-->
+<!--            android:id="@+id/searchBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_gravity="center|top"-->
+<!--            android:layout_marginTop="120dp"-->
+<!--            android:layout_marginLeft="15dp"-->
+<!--            android:layout_marginRight="15dp"-->
+<!--            android:background="@drawable/rectengle_shape"-->
+<!--            android:clickable="true"-->
+<!--            android:drawableRight="@drawable/ic_baseline_search_24"-->
+<!--            android:drawableTint="@color/colorMain"-->
+<!--            android:gravity="center|left"-->
+<!--            android:paddingLeft="35dp"-->
+<!--            android:paddingRight="20dp"-->
+<!--            android:text="선별진료소를 검색해보세요."-->
+<!--            android:textSize="15dp" />-->
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

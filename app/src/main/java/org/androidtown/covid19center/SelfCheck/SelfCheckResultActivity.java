@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -16,6 +19,7 @@ import org.androidtown.covid19center.R;
 public class SelfCheckResultActivity extends AppCompatActivity {
 
     public int mCheckNum;
+    private ImageButton backButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,10 +27,21 @@ public class SelfCheckResultActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_self_check_result);
 
+        backButton = (ImageButton)findViewById(R.id.self_check_result_back_button);
+
+        //자가진단 체크 개수 전달받기
         Intent intent = getIntent();
-        mCheckNum = intent.getExtras().getInt("checkNum");  //자가진단 체크 개수 전달받기
+        mCheckNum = intent.getExtras().getInt("checkNum");
 
         changeView(mCheckNum);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+                finish();
+            }
+        });
     }
 
     private void changeView(int check_num) {

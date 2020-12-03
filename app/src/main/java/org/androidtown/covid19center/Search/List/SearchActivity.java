@@ -30,7 +30,7 @@ public class SearchActivity extends AppCompatActivity {
     private ArrayList<ClinicItem> copyList; // 복사리스트
     private EditText clinicSearch; // 진료소 검색
     private ClinicAdapter myAdapter;
-    private Handler mHandler = null;
+    private final Handler mHandler = null;
     private AppDatabase db;
     private ListView listView;
     private List<Double> list;
@@ -46,8 +46,8 @@ public class SearchActivity extends AppCompatActivity {
         backButton = findViewById(R.id.search_backButton);
         clinicDataList = new ArrayList<ClinicItem>();
         copyList = new ArrayList<ClinicItem>();
-        listView = (ListView)findViewById(R.id.clinicListView); // 리스트뷰 생성
-        myAdapter = new ClinicAdapter(this,clinicDataList); // 진료소 리스트 관리할 어뎁터 생성
+        listView = findViewById(R.id.clinicListView); // 리스트뷰 생성
+        myAdapter = new ClinicAdapter(this, clinicDataList); // 진료소 리스트 관리할 어뎁터 생성
 
         listView.setAdapter(myAdapter); // 리스트뷰에 어뎁터 탑제
 
@@ -63,7 +63,7 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
-    private void searchInClinic(){
+    private void searchInClinic() {
         clinicSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -84,9 +84,9 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         // 리스트 아이템 클릭 시 발생 이벤트 콜백함수
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView parent, View v, int position, long id){
+            public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), ClinicActivity.class);
                 intent.putExtra("clinicName", clinicDataList.get(position).getClinicName());
                 intent.putExtra("clinicAddress", clinicDataList.get(position).getClinicAddress());
@@ -94,8 +94,8 @@ public class SearchActivity extends AppCompatActivity {
                 intent.putExtra("clinicDistance", clinicDataList.get(position).getClinicDistance());
                 intent.putExtra("clinicX", clinicDataList.get(position).getX());
                 intent.putExtra("clinicY", clinicDataList.get(position).getY());
-                Log.d("test1", "X"+clinicDataList.get(position).getX());
-                Log.d("test1", "Y"+clinicDataList.get(position).getY());
+                Log.d("test1", "X" + clinicDataList.get(position).getX());
+                Log.d("test1", "Y" + clinicDataList.get(position).getY());
                 startActivity(intent);
             }
         });
@@ -114,19 +114,16 @@ public class SearchActivity extends AppCompatActivity {
             clinicDataList.addAll(copyList);
         }
         // 문자 입력을 할때..
-        else
-        {
+        else {
             // 리스트의 모든 데이터를 검색한다.
-            for(int i = 0;i < copyList.size(); i++)
-            {
+            for (int i = 0; i < copyList.size(); i++) {
                 // arraylist의 모든 데이터에 입력받은 단어(charText)가 포함되어 있으면 true를 반환한다.
-                if (copyList.get(i).getClinicName().toLowerCase().contains(charText))
-                {
+                if (copyList.get(i).getClinicName().toLowerCase().contains(charText)) {
                     // 검색된 데이터를 리스트에 추가한다.
                     clinicDataList.add(copyList.get(i));
                 }
 
-                myAdapter = new ClinicAdapter(this,clinicDataList); // 진료소 리스트 관리할 어뎁터 생성
+                myAdapter = new ClinicAdapter(this, clinicDataList); // 진료소 리스트 관리할 어뎁터 생성
                 listView.setAdapter(myAdapter); // 리스트뷰에 어뎁터 탑제
 
             }
@@ -135,24 +132,19 @@ public class SearchActivity extends AppCompatActivity {
         myAdapter.notifyDataSetChanged();
     }
 
-    private void addClinicList()
-    {
+    private void addClinicList() {
         db = AppDatabase.getInstance(getBaseContext());
 
         DistanceComparator comparator = new DistanceComparator(); // 비교
 
         db.clinicDao().getAll().observe(this, clinics -> {
 
-            for(int i=0; i<clinics.size()-1; i++)
-            {
-                ClinicItem clinicItem = new ClinicItem(clinics.get(i).getClinicName(),clinics.get(i).getClinicCallNumber(), clinics.get(i).getClinicAddress(), clinics.get(i).getX(), clinics.get(i).getY(), "yes");
+            for (int i = 0; i < clinics.size() - 1; i++) {
+                ClinicItem clinicItem = new ClinicItem(clinics.get(i).getClinicName(), clinics.get(i).getClinicCallNumber(), clinics.get(i).getClinicAddress(), clinics.get(i).getX(), clinics.get(i).getY(), "yes");
 
-                if(LocationConsts.NOW_X == 126.924 && LocationConsts.NOW_Y == 37.516)
-                {
+                if (LocationConsts.NOW_X == 126.924 && LocationConsts.NOW_Y == 37.516) {
                     clinicDataList.add(clinicItem);
-                }
-
-                else if(clinicItem.getClinicDistance() < 20000){
+                } else if (clinicItem.getClinicDistance() < 20000) {
                     clinicDataList.add(clinicItem);
                 }
 
@@ -160,7 +152,7 @@ public class SearchActivity extends AppCompatActivity {
 
             Collections.sort(clinicDataList, comparator);
 
-            myAdapter = new ClinicAdapter(this,clinicDataList); // 진료소 리스트 관리할 어뎁터 생성
+            myAdapter = new ClinicAdapter(this, clinicDataList); // 진료소 리스트 관리할 어뎁터 생성
             listView.setAdapter(myAdapter); // 리스트뷰에 어뎁터 탑제
             copyList.addAll(clinicDataList);
             myAdapter.notifyDataSetChanged();

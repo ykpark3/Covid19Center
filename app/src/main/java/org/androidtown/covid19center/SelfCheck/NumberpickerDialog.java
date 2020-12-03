@@ -2,7 +2,6 @@ package org.androidtown.covid19center.SelfCheck;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import org.androidtown.covid19center.R;
 
 public class NumberpickerDialog extends DialogFragment {
     private NumberPicker.OnValueChangeListener valueChangeListener;
-
     String title;
     String subTitle;
     int minvalue;

@@ -2,7 +2,6 @@ package org.androidtown.covid19center.DataBase;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "clinic")
@@ -20,23 +19,7 @@ public class Clinic {
     @ColumnInfo(name = "clinic_y")
     private String y; // 병원 y좌표
 
-    public String getClinicName(){
-        return clinicName;
-    }
-
-    public String getClinicCallNumber(){
-        return clinicCallNumber;
-    }
-
-    public String getClinicAddress() {
-        return clinicAddress;
-    }
-
-    public int getCid(){
-        return cid;
-    }
-
-    public Clinic(String clinicName, String clinicAddress, String clinicCallNumber, String x, String y){
+    public Clinic(String clinicName, String clinicAddress, String clinicCallNumber, String x, String y) {
         this.clinicName = clinicName;
         this.clinicAddress = clinicAddress;
         this.clinicCallNumber = clinicCallNumber;
@@ -48,6 +31,37 @@ public class Clinic {
 
     }
 
+    public String getClinicName() {
+        return clinicName;
+    }
+
+    public void setClinicName(String clinicName) {
+        this.clinicName = clinicName;
+    }
+
+    public String getClinicCallNumber() {
+        return clinicCallNumber;
+    }
+
+    public void setClinicCallNumber(String clinicCallNumber) {
+        this.clinicCallNumber = clinicCallNumber;
+    }
+
+    public String getClinicAddress() {
+        return clinicAddress;
+    }
+
+    public void setClinicAddress(String clinicAddress) {
+        this.clinicAddress = clinicAddress;
+    }
+
+    public int getCid() {
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        this.cid = cid;
+    }
 
     public String getX() {
         return x;
@@ -68,7 +82,7 @@ public class Clinic {
     @Override
     public String toString() {
         return "Clinic{" +
-                "cid=" + String.valueOf(cid) +
+                "cid=" + cid +
                 ", clinicName='" + clinicName + '\'' +
                 ", clinicAddress='" + clinicAddress + '\'' +
                 ", clinicCallNumber='" + clinicCallNumber + '\'' +
@@ -77,24 +91,6 @@ public class Clinic {
 
                 '}';
     }
-
-    public void setCid(int cid) {
-        this.cid = cid;
-    }
-
-    public void setClinicName(String clinicName) {
-        this.clinicName = clinicName;
-    }
-
-    public void setClinicAddress(String clinicAddress) {
-        this.clinicAddress = clinicAddress;
-    }
-
-    public void setClinicCallNumber(String clinicCallNumber) {
-        this.clinicCallNumber = clinicCallNumber;
-    }
-
-
 
 
 }

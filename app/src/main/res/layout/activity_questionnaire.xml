@@ -254,8 +254,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="증상 발생일: "
-                    android:textColor="@color/colorBlack"/>
+
+                    android:textColor="@color/colorBlack"
+                    android:text="증상 발생일: " />
 
                 <TextView
                     android:id="@+id/questionnarie_textView_start_date"
@@ -266,7 +267,42 @@
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="4. 의사에게 전달할 특이사항을 적어주세요."
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"
+                    android:text="특이사항: "
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/questionnarie_editText_toDoctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
         </LinearLayout>
+
+
 
     </ScrollView>
 

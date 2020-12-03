@@ -9,6 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
 
+        <ImageButton
+            android:id="@+id/self_check_result_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical|left"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_round_keyboard_arrow_left_24"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,14 +32,61 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+<!--    <TextView-->
+<!--        android:id="@+id/textview_notify_ques"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:text="화면 클릭시 해당 환자의 문진표를 확인 가능합니다."-->
+<!--        android:textColor="@android:color/holo_red_light"/>-->
+
+    <LinearLayout
+        android:id="@+id/layout_listview_contents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="56dp"
+            android:text="예약일"
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:text="예약 시간"
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="환자명"
+            android:textColor="@color/colorBlack"/>
+    </LinearLayout>
+
     <FrameLayout
         android:id="@+id/frame_reservation_list"
         android:layout_width="match_parent"
         android:layout_height="300dp">
 
+        <View
+            android:id="@+id/view_deviding_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/darker_gray" />
+
         <ListView
             android:id="@+id/reservation_listview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"/>
     </FrameLayout>
 </LinearLayout>
