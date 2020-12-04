@@ -18,9 +18,12 @@ import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import org.androidtown.covid19center.R;
+import org.androidtown.covid19center.Server.AppManager;
 import org.androidtown.covid19center.Server.ReservationVO;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class CreateQr extends AppCompatActivity {
     private ImageView qr_code;
@@ -29,11 +32,22 @@ public class CreateQr extends AppCompatActivity {
 
     ReservationVO reservationVO;
 
+    private ArrayList<ReservationVO> reservationList;
+
     public CreateQr() {
-        //임시 데이터 저장
 
-        reservationVO = new ReservationVO("user_qr_테스트", 1, "hospital_1", "11:30", "11/19", 0);
+        reservationList = new ArrayList<ReservationVO>();
+        reservationList =  AppManager.getInstance().getReservationVOArrayList();
 
+        reservationVO = new ReservationVO(
+                reservationList.get(reservationList.size()-1).getUser_id(),
+                reservationList.get(reservationList.size()-1).getQuestionnaire_seq(),
+                reservationList.get(reservationList.size()-1).getHospital_name(),
+                reservationList.get(reservationList.size()-1).getTime(),
+                reservationList.get(reservationList.size()-1).getDate(),
+                reservationList.get(reservationList.size()-1).getVisited());
+
+        //reservationVO = new ReservationVO("user_qr_테스트", 1, "hospital_1", "11:30", "11/19", 0);
     }
 
     @Override
