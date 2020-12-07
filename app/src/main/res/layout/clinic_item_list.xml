@@ -61,7 +61,7 @@
             android:layout_weight="10"
             android:text="042-331-0882"
             android:textColor="@color/colorBlack"
-            android:textSize="14sp" />
+            android:textSize="12sp" />
 
     </LinearLayout>
 </LinearLayout>

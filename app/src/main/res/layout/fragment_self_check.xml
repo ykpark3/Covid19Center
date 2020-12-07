@@ -106,7 +106,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginBottom="15dp"
             android:layout_weight="1"
-            android:background="@drawable/background_purple_rectangle"
+            android:background="@drawable/background_blue_rectangle"
             android:text="제출하기"
             android:fontFamily="@font/nanumsquare_b"
             android:textColor="@color/colorWhite"

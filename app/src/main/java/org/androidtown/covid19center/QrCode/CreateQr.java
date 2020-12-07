@@ -23,6 +23,7 @@ import org.androidtown.covid19center.Server.ReservationVO;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 import java.util.ArrayList;
 
 public class CreateQr extends AppCompatActivity {
@@ -103,4 +104,3 @@ public class CreateQr extends AppCompatActivity {
         return object;
     }
 }
-

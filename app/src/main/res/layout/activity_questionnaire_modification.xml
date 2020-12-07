@@ -12,12 +12,12 @@
 
         <ImageButton
             android:id="@+id/questionnarie_backButton"
-            android:stateListAnimator="@null"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:backgroundTint="@color/colorWhite"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical|left"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_round_keyboard_arrow_left_24"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -266,6 +266,24 @@
                     android:textColor="@color/colorLightGray" />
 
             </LinearLayout>
+
+            <!--    기타 전달사항     -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="4. 의사에게 전달할 특이사항"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
+
+            <EditText
+                android:id="@+id/questionnaire_modification_to_doctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
 
         </LinearLayout>
 

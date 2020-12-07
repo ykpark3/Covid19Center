@@ -1,10 +1,14 @@
 package org.androidtown.covid19center.Hospital;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 
 import androidx.fragment.app.FragmentActivity;
 
+import org.androidtown.covid19center.Login.LoginActivity;
 import org.androidtown.covid19center.R;
 import org.androidtown.covid19center.Server.AppManager;
 import org.androidtown.covid19center.Server.ReservationVO;
@@ -22,12 +26,13 @@ public class HospitalMainActivity extends FragmentActivity {
 
     //private ServiceApi serviceApi;
    // private ArrayList<ReservationVO> reservationVOArrayList;
+    private ImageButton logoutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hospital_main);
-
+        logoutButton = findViewById(R.id.hospital_logout_button);
         Log.d("~~~~~", "HospitalMainActivity oncreate");
 
        // serviceApi = RetrofitClient.getClient().create(ServiceApi.class);
@@ -40,6 +45,13 @@ public class HospitalMainActivity extends FragmentActivity {
         fragmentTransaction.add(R.id.fragmentHospital, new FragmentHospital()).commit();
 
          */
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /*

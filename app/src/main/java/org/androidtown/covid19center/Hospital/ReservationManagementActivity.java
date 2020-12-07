@@ -31,6 +31,7 @@ public class ReservationManagementActivity extends AppCompatActivity {
 
     AppCompatActivity activity = this;
 
+    //임시 리스트
     private ArrayList<ReservationVO> reservationList;
     private ArrayList<ReservationVO> selectedList;
 

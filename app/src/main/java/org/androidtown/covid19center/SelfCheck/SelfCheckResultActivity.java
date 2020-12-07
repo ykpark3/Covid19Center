@@ -54,9 +54,6 @@ public class SelfCheckResultActivity extends AppCompatActivity {
             frame.removeViewAt(0);
         }
 
-        //임시 확인용!!
-        Toast.makeText(this, "checknum : " + mCheckNum, Toast.LENGTH_SHORT).show();
-
         // XML에 작성된 레이아웃을 View 객체로 변환.
         View view = null ;
         switch (check_num) {

@@ -267,7 +267,7 @@ public class ReservationActivity extends AppCompatActivity {
                 canNextPage = true;
 
 
-                view.setBackgroundResource(R.drawable.background_purple_rectangle);
+                view.setBackgroundResource(R.drawable.background_blue_rectangle);
 
                 timeViews.add(view);
 
@@ -276,11 +276,11 @@ public class ReservationActivity extends AppCompatActivity {
 
                     Log.d("1542","123");
                     if(timeViews.get(0).equals(view) && view.getBackground().equals(R.drawable.background_gray_rectangle)){
-                        view.setBackgroundResource(R.drawable.background_purple_rectangle);
-                    } else if(timeViews.get(0).equals(view) && view.getBackground().equals(R.drawable.background_purple_rectangle)){
+                        view.setBackgroundResource(R.drawable.background_blue_rectangle);
+                    } else if(timeViews.get(0).equals(view) && view.getBackground().equals(R.drawable.background_blue_rectangle)){
                         view.setBackgroundResource(R.drawable.background_gray_rectangle);
                     } else{
-                        view.setBackgroundResource(R.drawable.background_purple_rectangle);
+                        view.setBackgroundResource(R.drawable.background_blue_rectangle);
                         timeViews.get(0).setBackgroundResource(R.drawable.background_gray_rectangle);
                     }
 

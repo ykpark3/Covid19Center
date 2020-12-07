@@ -9,6 +9,17 @@
         android:layout_width="match_parent"
         android:layout_height="60dp">
 
+        <ImageButton
+            android:id="@+id/hospital_logout_button"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_vertical|left"
+            android:background="@android:color/transparent"
+            android:src="@drawable/logout"/>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="47dp"
@@ -17,14 +28,6 @@
             android:layout_marginTop="5dp"
             android:src="@drawable/covid_logo"/>
     </FrameLayout>
-
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="로고!"-->
-<!--            android:textColor="@color/colorBlack"-->
-<!--            android:textSize="15dp"-->
-<!--            android:layout_gravity="center"/>-->
 
     <FrameLayout
         android:id="@+id/hospital_qr_scan2"
@@ -45,15 +48,15 @@
                 android:background="@drawable/ic_baseline_qr_code_scanner_24" />
 
             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:gravity="center_vertical"
-            android:text="QR 스캔"
-            android:textColor="@android:color/black"
-            android:textSize="15dp" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:text="QR 스캔"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
         </LinearLayout>
 
     </FrameLayout>
@@ -81,16 +84,16 @@
                 android:layout_gravity="center"
                 android:background="@drawable/ic_outline_event_24" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center_vertical"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="예약 관리"
-            android:textColor="@android:color/black"
-            android:textSize="15dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="예약 관리"
+                android:textColor="@android:color/black"
+                android:textSize="15dp" />
 
         </LinearLayout>
 

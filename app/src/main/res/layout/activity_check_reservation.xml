@@ -82,7 +82,7 @@
                 android:id="@+id/questionnaireButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_purple_rectangle"
+                android:background="@drawable/background_blue_rectangle"
                 android:text="문진표" />
 
 

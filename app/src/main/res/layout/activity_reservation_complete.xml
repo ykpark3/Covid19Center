@@ -2,16 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <FrameLayout
-        android:background="@color/colorWhite"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="40dp"
+        android:background="@color/colorWhite">
 
         <ImageButton
             android:id="@+id/reservation_complete_backButton"
@@ -19,10 +17,11 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
             android:layout_gravity="center_vertical|left"
+            android:layout_marginLeft="5dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_round_keyboard_arrow_left_24"/>
+            android:src="@drawable/ic_round_keyboard_arrow_left_24" />
+
 
 
         <TextView
@@ -53,11 +52,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/nanumsquare_b"
                 android:text="예약자 : 박태순"
                 android:textColor="@color/colorBlack"
-                android:textSize="18dp" />
+                android:textSize="17dp" />
 
 
             <LinearLayout
@@ -74,7 +73,7 @@
                     android:layout_marginRight="20dp"
                     android:text="예약 날짜 : 2020년 11월 27일"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp" />
+                    android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/reservation_complete_clinicName"
@@ -85,7 +84,7 @@
                     android:layout_marginRight="20dp"
                     android:text="예약 병원 : 대전성모병원"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp" />
+                    android:textSize="17dp" />
 
                 <TextView
                     android:id="@+id/reservation_complete_clinicAddress"
@@ -96,12 +95,11 @@
                     android:layout_marginRight="20dp"
                     android:text="병원 주소 : 대전 중구 자이아파트"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp" />
+                    android:textSize="17dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:orientation="horizontal">
 
                     <TextView
@@ -112,7 +110,7 @@
                         android:layout_marginLeft="20dp"
                         android:text="전화번호 : 042-331-0882"
                         android:textColor="@color/colorBlack"
-                        android:textSize="18dp" />
+                        android:textSize="17dp" />
 
                     <ImageButton
                         android:id="@+id/reservation_complete_callButton"
@@ -128,7 +126,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:background="@color/colorLightGray" />
 
             <LinearLayout
@@ -137,12 +135,12 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="10dp"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="1. 최근 21일 이내 '코로나바이러스감염증19' 유행국가, 감염병\n     특별관리지역, 발생국가를 방문, 거주, 경유한 적이 있습니까?"
+                    android:text="1. 최근 21일 이내 '코로나바이러스감염증19'\n유행국가, 감염병특별관리지역, 발생국가를 방문, 거주,\n경유한 적이 있습니까?"
                     android:textColor="@color/colorBlack"
                     android:textSize="15dp" />
 
@@ -165,14 +163,15 @@
                     android:text="방문국가/지역/장소 : 이탈리아"
                     android:textColor="@color/colorBlack"
                     android:textSize="15dp" />
+
                 <TextView
                     android:id="@+id/reservation_complete_national_true_date_textView"
-                    android:textColor="@color/colorBlack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp"
                     android:text="2020/05/19"
+                    android:textColor="@color/colorBlack"
                     android:textSize="15dp" />
             </LinearLayout>
 
@@ -182,7 +181,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="10dp"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -195,8 +194,8 @@
                     android:id="@+id/reservation_complete_contact_check_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
                     android:text="없음"
                     android:textColor="@color/colorBlack"
                     android:textSize="15dp" />
@@ -210,14 +209,15 @@
                     android:text="본인과의 관계 : 친구"
                     android:textColor="@color/colorBlack"
                     android:textSize="15dp" />
+
                 <TextView
                     android:id="@+id/reservation_complete_contact_true_date_textView"
-                    android:textColor="@color/colorBlack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
                     android:text="2020/05/19"
+                    android:textColor="@color/colorBlack"
                     android:textSize="15dp" />
             </LinearLayout>
 
@@ -227,7 +227,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="10dp"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -240,8 +240,8 @@
                     android:id="@+id/reservation_complete_symptom_check_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
                     android:text="없음"
                     android:textColor="@color/colorBlack"
                     android:textSize="15dp" />
@@ -258,23 +258,24 @@
 
                 <TextView
                     android:id="@+id/reservation_complete_symptom_date_textView"
-                    android:textColor="@color/colorBlack"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
                     android:text="2020/05/19"
+                    android:textColor="@color/colorBlack"
                     android:textSize="15dp" />
             </LinearLayout>
 
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="10dp"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -289,6 +290,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
                     android:text="천식이 있어요."
                     android:textColor="@color/colorBlack"
                     android:textSize="15dp" />
@@ -296,16 +298,17 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/modificationButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorMain"
-                android:text="수정"
-                android:textColor="@color/colorWhite" />
 
         </LinearLayout>
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/modificationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorMain"
+        android:text="수정"
+        android:textColor="@color/colorWhite" />
 
 </LinearLayout>

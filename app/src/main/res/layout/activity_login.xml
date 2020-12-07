@@ -94,4 +94,24 @@
         android:text="Login"
         />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="방문자 페이지 id : uuu / password : uuu"
+        android:textColor="@color/colorBlack"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="의료진 페이지 id : hhh / password : hhh"
+        android:textColor="@color/colorBlack"
+        android:textSize="15dp" />
+
 </LinearLayout>
